@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>three.js app</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1 class="title">Infographie : TP 4 - Noel 2D</h1>
+    
+  
+    <div class="page">
+        <div class="bg mainmenu">
+            <div>
+                <span>Affichage de la BSpline</span>
+                <div>
+                    <button id="baseBtn" data-method="base" onclick="toggleBezierDisplay('base')">Méthode de Base</button>
+        
+                </div>
+            </div>
+            
+            <div class="col">
+                <span>Paramètres de la BSpline :</span>
+                <div>
+                    <label for="degree">degré m : </label>
+                    <input type="number" name="degree" id="degree" value="1" />
+                    <button onclick="changeDegree()">Appliquer</button>
+                    <button onclick="changeDegree()">Initial</button>
+                </div>
+                <div>
+                    <label for="vector">Vecteur Nodal : </label>
+                    <input type="text" name="vector" id="vector" value="" />
+                    <button onclick="changeVector([])">Appliquer</button>
+                    <button onclick="changeVector(-1)">Aléatoire</button>                    
+                </div>
+
+                <span>m = <span id="degreeValue"></span></span>
+                <span>t = <span id="vectorValue"></span></span>
+
+            </div>
+
+            <div class="applications">
+                <span>Applications :</span>
+                <button onclick="applyPresetCurve(1)">Courbe 1 - Points de contrôles: (0, 0) (0, 1) (1, 1) (1, 0)</button>
+                <button onclick="applyPresetCurve(2)">Courbe 2 - Points de contrôles: (0, 0) (1, 0) (0, 1) (1, 1)</button>
+                <button onclick="applyPresetCurve(3)">Courbe 3 - Points de contrôles: (0, 0) (1, 1) (0, 1) (1, 0)</button>
+            </div>
+     
+    </div>
+
+        <div class="threejs">
+            <div id="threejs" style="border-color:red;border:20px;"></div>
+        </div>
+
+        <div class="bg">
+            <div>
+                <details>
+                    <summary>Informations</summary>
+                    Clic molette pour sélectionner un point,<br> et recliquer au niveau de la destination.
+                </details>
+            </div>
+            <br>
+            <div class="menu">
+                <div class="addPoint">
+                    <div>
+                        <label for="xcoord">X : </label>
+                        <input type="number" name="xcoord" id="xcoord" />
+                    </div>
+                    <div>
+                        <label for="ycoord"> Y : </label>
+                        <input type="number" name="ycoord" id="ycoord" />
+                    </div>
+
+                </div>
+                <button onclick="addPointFromInput()">Ajouter Point</button>
+                <button onclick="toggleControlsPoints()">Toggle Points</button>
+            </div>
+            <br>
+            <button onclick="clearGraph()">Réinitialiser</button>
+            <br>
+
+            <div class="tablePoints">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="3">Points présents</th>
+                        </tr>
+                    </thead>
+                    <tbody id="points">
+                        <tr>
+                            <td>id</td>
+                            <td>X</td>
+                            <td>Y</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="three.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script> I
+    <script src="manageDashboard.js"></script>
+    <script src="Noel2D.js"></script>
+
+</body>
+
+</html>

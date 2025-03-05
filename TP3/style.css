@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+    font-family: 'Avenir', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+thead {
+    background-color: #333;
+    color: white;
+}
+
+button { 
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+input {
+    width: 10%;  /* Réduction à 60% de la largeur initiale */
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+span {
+    align-items:center;
+    align-self: center;
+    /* width: 80%; */
+
+    /* justify-self: ce */
+    margin-top: 10px;
+    color: BLACK;
+    font-weight: bold;
+    /* margin-bottom: 10px; */
+
+
+}
+
+
+
+.threejs {
+    width:50vw;
+    height: 70vh;
+}
+
+
+.title {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    margin: 0;
+}
+
+
+
+.page {
+    display: flex;
+    justify-content: space-between;
+    gap: 2%;
+    padding: 10px;
+}
+.bg {
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    gap: 1%;
+    flex-direction: column;
+}
+
+
+
+
+
+.active,.active:hover {
+    background-color: red;
+    color: white;
+}
+
+.mainmenu > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    gap:8px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.mainmenu > div > div{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    width: fit-content;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 15vw;
+}
+
+.instruction {
+    text-align: center;
+    margin: 20px;
+    font-size: 18px;
+    color: #555;
+}
+
+.addPoint {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.addPoint input {
+    width: 20%;
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.tablePoints {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.col {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+}
+
+col #vectorValue{
+    width: 200px;
+}

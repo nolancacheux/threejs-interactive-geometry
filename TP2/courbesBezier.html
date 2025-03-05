@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>three.js app</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1 class="h1">Infographie : TP 2</h1>
+    
+  
+    <div class="page">
+        <div class="bg">
+
+        <div class="methods">
+            <span>Affichage de la courbe de Bézier</span>
+            <div>
+                <button id="bernsteinBtn" data-method="bernstein" onclick="toggleBezierDisplay('bernstein')">Méthode Bernstein</button>
+                <button id="deCasteljauBtn" data-method="deCasteljau" onclick="toggleBezierDisplay('deCasteljau')">Méthode De Casteljau</button> 
+    
+            </div>
+        </div>
+        
+        <div class="applications">
+            <span>Applications :</span>
+            <button onclick="applyPresetCurve(1)">Courbe 1 - Points de contrôles: (0, 0) (0, 1) (1, 1) (1, 0)</button>
+            <button onclick="applyPresetCurve(2)">Courbe 2 - Points de contrôles: (0, 0) (1, 0) (0, 1) (1, 1)</button>
+            <button onclick="applyPresetCurve(3)">Courbe 3 - Points de contrôles: (0, 0) (1, 1) (0, 1) (1, 0)</button>
+        </div>
+        <div class="transformations">
+          <span>Transformations :</span>
+          <div class="transfo">
+              <label>Translation</label>
+              <label>X :</label>
+              <input type="number" id="translateX" value="0">
+              <label>Y :</label>
+              <input type="number" id="translateY" value="0">
+              <button onclick="applyTranslation()">Appliquer</button>
+          </div>
+          <div class="transfo">
+              <label>Homothétie (échelle) :</label>
+              <input type="number" id="scale" value="1" step="0.1">
+              <button onclick="applyScale()">Appliquer</button>
+          </div>
+          <div class="transfo">
+              <label>Rotation (degrés) :</label>
+              <input type="number" id="rotation" value="0">
+              <button onclick="applyRotation()">Appliquer</button>
+          </div>
+          <button onclick="combineTransformations()">Combiner les transformations</button>
+      </div>
+    </div>
+
+        <div class="threejs">
+            <div id="threejs" style="border-color:red;border:20px;"></div>
+        </div>
+
+        <div class="dashboard bg">
+            <div>
+                <details>
+                    <summary>Informations</summary>
+                    Clic molette pour sélectionner un point,<br> et recliquer au niveau de la destination.
+                </details>
+            </div>
+            <br>
+            <div class="menu">
+                <div class="addPoint">
+                    <div>
+                        <label for="xcoord">X : </label>
+                        <input type="number" name="xcoord" id="xcoord" />
+                    </div>
+                    <div>
+                        <label for="ycoord"> Y : </label>
+                        <input type="number" name="ycoord" id="ycoord" />
+                    </div>
+
+                </div>
+                <button onclick="addPointFromInput()">Ajouter Point</button>
+            </div>
+            <br>
+            <button onclick="clearGraph()">Réinitialiser</button>
+            <br>
+
+            <div class="tablePoints">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="3">Points présents</th>
+                        </tr>
+                    </thead>
+                    <tbody id="points">
+                        <tr>
+                            <td>id</td>
+                            <td>X</td>
+                            <td>Y</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="three.js"></script>
+    <script src="manageDashboard.js"></script>
+    <script src="courbesBezier.js"></script>
+</body>
+
+</html>
